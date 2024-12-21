@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Grading System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        text-align: center;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 600px;
+      }
+
+      h1 {
+        color: #4caf50;
+        margin-bottom: 20px;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #555;
+      }
+
+      .result img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn {
+        border: 2px solid #4caf50;
+        color: white;
+        background-color: #4caf50;
+        padding: 12px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+      }
+
+      .health-message {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .about-project {
+        margin-top: 40px;
+        font-size: 16px;
+        color: #777;
+        text-align: center;
+        line-height: 1.6;
+        padding: 20px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-project h3 {
+        font-size: 22px;
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .about-project p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fruit Grading System</h1>
+      <div class="result">
+        <p><strong>{{ grade }}</strong></p>
+        <p>{{ edible }}</p>
+        <img
+          src="{{ url_for('static', filename='uploads/' + image_path) }}"
+          alt="Uploaded Image"
+        />
+        <br />
+        <img
+          src="{{ url_for('static', filename='uploads/' + processed_path.split('/')[-1]) }}"
+          alt="Processed Image"
+        />
+      </div>
+
+      <div class="health-message">
+        <p>Eat fresh, stay healthy!</p>
+      </div>
+
+      <a href="/" class="btn">Upload Another Image</a>
+
+      <!-- Centered About Project Box -->
+      <div class="about-project">
+        <h3>About the Project</h3>
+        <p>
+          The Fruit Grading System uses advanced image processing techniques to
+          determine the ripeness of fruits. By analyzing the fruit's color and
+          texture, the system automatically grades the fruit as either Grade A
+          (ripe), Grade B (mildly ripe), or Grade C (rotten). This helps users
+          make informed decisions about the fruit's edibility, ensuring healthy
+          choices and reducing food waste.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
